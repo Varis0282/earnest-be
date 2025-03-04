@@ -17,6 +17,22 @@ mongoose.connect(process.env.MONGO_URL)
         console.log('Error in connecting to MongoDB', err);
     });
 
+const get = async () => {
+  const result = await fetch('https://earnest-fe.onrender.com/')
+  console.log(result);
+}
+
+const get2 = async () => {
+  const result = await fetch('https://earnest-be-226w.onrender.com')
+  console.log(result);
+}
+
+setInterval(() => {
+  get();
+  get2();
+}, 300000);
+
+
 // Import routes
 const authRoute = require('./routes/auth_routes');
 const taskRoute = require('./routes/task_routes');
